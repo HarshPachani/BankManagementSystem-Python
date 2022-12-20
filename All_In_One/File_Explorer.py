@@ -144,7 +144,7 @@ def listFilesInFolder():
 def quitApp(master):
     master.destroy()
 
-if __name__ == "__main__":
+def mainScreen():
     root = Tk()
     root.title("File Explorer")
     root.geometry("400x600+850+50")
@@ -186,3 +186,6 @@ if __name__ == "__main__":
 
     fileNameEntered = StringVar()
     root.mainloop()
+    
+if __name__ == "__main__":
+    mainScreen()
