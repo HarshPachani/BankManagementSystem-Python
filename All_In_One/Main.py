@@ -45,6 +45,9 @@ def calci():
 def clock():
     Digital_Clock.clock()
 
+def fileExplorer():
+    File_Explorer.mainScreen()
+
 def projectNames(root):
     frame = customtkinter.CTkFrame(master = root)
     frame.pack(side = "top")
@@ -61,7 +64,7 @@ def projectNames(root):
     digital = customtkinter.CTkButton(master = root, text = "Digital Clock", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : clock())
     digital.place(x = 120, y = 450)
         
-    crud = customtkinter.CTkButton(master = root, text = "CRUD Operation", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : CRUD())
+    crud = customtkinter.CTkButton(master = root, text = "File Explorer", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : fileExplorer())
     crud.place(x = 1040, y = 120)
 
     quitButton = customtkinter.CTkButton(master = root, text = "Quit", text_font = "Times 13", width = 21, fg_color = "red", command = lambda : quitApp(root))
