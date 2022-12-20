@@ -62,7 +62,7 @@ def paste():
 def about():
     msgb.showinfo("Notepad", "Notepad by Harsh Pachani")
 
-if __name__ == "__main__":
+def mainScreen():
     root = Tk()
     root.title("Untitled - Notepad")
     screen_width = root.winfo_screenwidth()
@@ -115,3 +115,6 @@ if __name__ == "__main__":
     scrollbar.config(command = textArea.yview)
     textArea.config(yscrollcommand = scrollbar.set)
     root.mainloop()
+
+if __name__ == "__main__":
+    mainScreen()
