@@ -37,6 +37,9 @@ def quitApp(master):
 def bankManagement():
     BankManagement.mainMenu()
 
+def calci():
+    Calculator.mainMenu()
+
 def projectNames(root):
     frame = customtkinter.CTkFrame(master = root)
     frame.pack(side = "top")
@@ -47,7 +50,7 @@ def projectNames(root):
     bank = customtkinter.CTkButton(master = root, text = " Bank Management System ", text_font = "Times 13", fg_color = "blue", command = lambda : bankManagement())
     bank.place(x = 120, y = 140)
 
-    calc = customtkinter.CTkButton(master = root, text = "Calculator", text_font = "Times 13", fg_color = "blue", width = 21)
+    calc = customtkinter.CTkButton(master = root, text = "Calculator", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : calci())
     calc.place(x = 120, y = 270)
 
     digital = customtkinter.CTkButton(master = root, text = "Digital Clock", text_font = "Times 13", fg_color = "blue", width = 21)
@@ -68,46 +71,6 @@ def listScreen():
     root.resizable(0, 0)
     projectNames(root)
     root.mainloop()
-
-
-class ListScreen(Tk):
-    def __init__(self):
-        super().__init__()
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-        self.title("Projects - By Harsh Pachani")
-        self.geometry(f"{screen_width}x{screen_height}")
-        self.resizable(0, 0)
-        self.config(bg = "Grey")
-
-#=====================ALL PROJECT OBJECTS==========================#
-    def quitApp(self):
-        self.destroy()
-
-    #============================PROJECT NAMES WITH ACCESSIBLE BUTTONS=======================#
-    def projectNames(self):
-        frame = Frame(self)
-        frame.pack(side = "top")
-
-        label = Message(frame, text = "Projects - By Harsh Pachani", width = 1200, padx = 800, font = "lucida 20 bold",relief = "raised", fg = "white", bg = "blue")
-        label.pack(side = "top")
-
-        frame2 = Frame(self)
-        frame2.pack(side = "left")
-        bank = Button(self, text = " Bank Management System ", font = "Times 13", bg = "blue", fg = "white")
-        bank.place(x = 120, y = 140)
-
-        calc = Button(self, text = "Calculator", font = "Times 13", bg = "blue", fg = "white", width = 21)
-        calc.place(x = 120, y = 270)
-
-        digital = Button(self, text = "Digital Clock", font = "Times 13", bg = "blue", fg = "white", width = 21)
-        digital.place(x = 120, y = 450)
-        
-        crud = Button(self, text = "CRUD Operation", font = "Times 13", bg = "blue", fg = "white", width = 21)
-        crud.place(x = 1040, y = 120)
-
-        quitButton = Button(self, text = "Quit", font = "Times 13", width = 21, fg = "white", bg = "red", command = lambda : self.quitApp())
-        quitButton.place(x = 720, y = 520)
 
 if __name__ == "__main__":
     listScreen()
