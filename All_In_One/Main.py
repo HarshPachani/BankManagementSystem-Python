@@ -9,6 +9,7 @@ import BankManagement
 import Calculator
 import Digital_Clock
 import File_Explorer
+import Notepad
 
 conn = sqlite3.connect('BankDetails.db')
 myCur = conn.cursor()
@@ -48,6 +49,9 @@ def clock():
 def fileExplorer():
     File_Explorer.mainScreen()
 
+def notepad():
+    Notepad.mainScreen()
+
 def projectNames(root):
     frame = customtkinter.CTkFrame(master = root)
     frame.pack(side = "top")
@@ -66,6 +70,9 @@ def projectNames(root):
         
     crud = customtkinter.CTkButton(master = root, text = "File Explorer", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : fileExplorer())
     crud.place(x = 1040, y = 120)
+
+    note_pad = customtkinter.CTkButton(master = root, text = "Notepad", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : notepad())
+    note_pad.place(x = 1040, y = 420)
 
     quitButton = customtkinter.CTkButton(master = root, text = "Quit", text_font = "Times 13", width = 21, fg_color = "red", command = lambda : quitApp(root))
     quitButton.place(x = 720, y = 520)
