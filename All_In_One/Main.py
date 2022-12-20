@@ -10,6 +10,7 @@ import Calculator
 import Digital_Clock
 import File_Explorer
 import Notepad
+import Password_Manager
 
 conn = sqlite3.connect('BankDetails.db')
 myCur = conn.cursor()
@@ -52,6 +53,9 @@ def fileExplorer():
 def notepad():
     Notepad.mainScreen()
 
+def passwordManager():
+    Password_Manager.mainScreen()
+
 def projectNames(root):
     frame = customtkinter.CTkFrame(master = root)
     frame.pack(side = "top")
@@ -73,6 +77,8 @@ def projectNames(root):
 
     note_pad = customtkinter.CTkButton(master = root, text = "Notepad", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : notepad())
     note_pad.place(x = 1040, y = 420)
+
+    passwordManage = customtkinter.CTkButton(master = root, text = "Password Manager", text_font = "Times 12", fg_color = "blue", width = 21, command = lambda : passwordManager())
 
     quitButton = customtkinter.CTkButton(master = root, text = "Quit", text_font = "Times 13", width = 21, fg_color = "red", command = lambda : quitApp(root))
     quitButton.place(x = 720, y = 520)
