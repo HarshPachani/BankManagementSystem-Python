@@ -17,52 +17,52 @@ def mainScreen():
 
     #====================METHODS====================
     def Database():
-    global conn, myCursor
-    conn = sqlite3.connect('Data.db')
-    myCursor = conn.cursor()
-    myCursor.execute("""CREATE TABLE IF NOT EXISTS `member` (
-                            mem_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                            firstname TEXT,
-                            lastname TEXT, 
-                            gender TEXT, 
-                            address TEXT, 
-                            username TEXT, 
-                            password TEXT)
-                    """)
+        global conn, myCursor
+        conn = sqlite3.connect('Data.db')
+        myCursor = conn.cursor()
+        myCursor.execute("""CREATE TABLE IF NOT EXISTS `member` (
+                                mem_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                firstname TEXT,
+                                lastname TEXT, 
+                                gender TEXT, 
+                                address TEXT, 
+                                username TEXT, 
+                                password TEXT)
+                        """)
 
     def create():
-    if FIRSTNAME.get() == "" or LASTNAME.get() == "" or  GENDER.get() == "" or ADDRESS.get() == "" or USERNAME.get() == "" or PASSWORD.get() == "":
-        txt_result.config(text = "Please Complete the required field!", fg = "red")
-    else:
-        Database()
-        myCursor.execute("INSERT INTO member (firstname, lastname, gender, address, username, password) VALUES(?, ?, ?, ?, ?, ?)", (str(FIRSTNAME.get()), str(LASTNAME.get()), str(GENDER.get()), str(ADDRESS.get()), str(USERNAME.get()), str(PASSWORD.get())))
-        conn.commit()
-        FIRSTNAME.set("")
-        LASTNAME.set("")
-        GENDER.set("")
-        ADDRESS.set("")
-        USERNAME.set("")
-        PASSWORD.set("")
-        myCursor.close()
-        conn.close()
-        txt_result.config(text="Created a data!", fg="green")
+        if FIRSTNAME.get() == "" or LASTNAME.get() == "" or  GENDER.get() == "" or ADDRESS.get() == "" or USERNAME.get() == "" or PASSWORD.get() == "":
+            txt_result.config(text = "Please Complete the required field!", fg = "red")
+        else:
+            Database()
+            myCursor.execute("INSERT INTO member (firstname, lastname, gender, address, username, password) VALUES(?, ?, ?, ?, ?, ?)", (str(FIRSTNAME.get()), str(LASTNAME.get()), str(GENDER.get()), str(ADDRESS.get()), str(USERNAME.get()), str(PASSWORD.get())))
+            conn.commit()
+            FIRSTNAME.set("")
+            LASTNAME.set("")
+            GENDER.set("")
+            ADDRESS.set("")
+            USERNAME.set("")
+            PASSWORD.set("")
+            myCursor.close()
+            conn.close()
+            txt_result.config(text="Created a data!", fg="green")
 
     def read():
-    tree.delete(*tree.get_children())
-    Database()
-    myCursor.execute("SELECT * FROM member ORDER BY lastname ASC")
-    fetch = myCursor.fetchall()
-    for data in fetch:
-        tree.insert('', 'end', values= (data[1], data[2], data[3], data[4], data[5], data[6]))
-    myCursor.close()
-    conn.close()
-    txt_result.config(text="Successfully read the data from database", fg="black")
+        tree.delete(*tree.get_children())
+        Database()
+        myCursor.execute("SELECT * FROM member ORDER BY lastname ASC")
+        fetch = myCursor.fetchall()
+        for data in fetch:
+            tree.insert('', 'end', values= (data[1], data[2], data[3], data[4], data[5], data[6]))
+        myCursor.close()
+        conn.close()
+        txt_result.config(text="Successfully read the data from database", fg="black")
 
     def Exit():
-    result = msgb.askquestion('Python: Simple CRUD Applition', 'Are you sure you want to exit?', icon="warning")
-    if result == 'yes':
-        root.destroy()
-        exit()
+        result = msgb.askquestion('Python: Simple CRUD Applition', 'Are you sure you want to exit?', icon="warning")
+        if result == 'yes':
+            root.destroy()
+            exit()
 
 
     #===================VARIABLES====================
