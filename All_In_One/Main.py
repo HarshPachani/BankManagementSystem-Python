@@ -8,7 +8,6 @@ import time
 import BankManagement
 import Calculator
 import Digital_Clock
-import Crud
 
 conn = sqlite3.connect('BankDetails.db')
 myCur = conn.cursor()
@@ -61,7 +60,7 @@ def projectNames(root):
     digital = customtkinter.CTkButton(master = root, text = "Digital Clock", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : clock())
     digital.place(x = 120, y = 450)
         
-    crud = customtkinter.CTkButton(master = root, text = "CRUD Operation", text_font = "Times 13", fg_color = "blue", width = 21)
+    crud = customtkinter.CTkButton(master = root, text = "CRUD Operation", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : CRUD())
     crud.place(x = 1040, y = 120)
 
     quitButton = customtkinter.CTkButton(master = root, text = "Quit", text_font = "Times 13", width = 21, fg_color = "red", command = lambda : quitApp(root))
