@@ -6,6 +6,7 @@ import time
 import tkinter.ttk as ttk
 import time
 import BankManagement
+import Calculator
 
 conn = sqlite3.connect('BankDetails.db')
 myCur = conn.cursor()
