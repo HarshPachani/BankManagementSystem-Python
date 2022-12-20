@@ -41,6 +41,9 @@ def bankManagement():
 def calci():
     Calculator.mainMenu()
 
+def clock():
+    Digital_Clock.clock()
+
 def projectNames(root):
     frame = customtkinter.CTkFrame(master = root)
     frame.pack(side = "top")
@@ -54,7 +57,7 @@ def projectNames(root):
     calc = customtkinter.CTkButton(master = root, text = "Calculator", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : calci())
     calc.place(x = 120, y = 270)
 
-    digital = customtkinter.CTkButton(master = root, text = "Digital Clock", text_font = "Times 13", fg_color = "blue", width = 21)
+    digital = customtkinter.CTkButton(master = root, text = "Digital Clock", text_font = "Times 13", fg_color = "blue", width = 21, command = lambda : clock())
     digital.place(x = 120, y = 450)
         
     crud = customtkinter.CTkButton(master = root, text = "CRUD Operation", text_font = "Times 13", fg_color = "blue", width = 21)
