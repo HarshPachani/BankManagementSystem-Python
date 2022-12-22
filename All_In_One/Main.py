@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import messagebox as msgb
 import customtkinter
 import sqlite3
-import time
 import tkinter.ttk as ttk
 import time
 import BankManagement
@@ -33,7 +32,7 @@ createHistoryTable = """CREATE TABLE IF NOT EXISTS transactionHistory(
 myCur.execute(createHistoryTable)
 
 customtkinter.set_appearance_mode("Dark")
-customtkinter.set_default_color_theme("blue")
+customtkinter.set_default_color_theme("green")
 
 def quitApp(master):
         master.destroy()
@@ -79,6 +78,7 @@ def projectNames(root):
     note_pad.place(x = 1040, y = 420)
 
     passwordManage = customtkinter.CTkButton(master = root, text = "Password Manager", text_font = "Times 12", fg_color = "blue", width = 21, command = lambda : passwordManager())
+    passwordManage.place(x = 1040, y = 220)
 
     quitButton = customtkinter.CTkButton(master = root, text = "Quit", text_font = "Times 13", width = 21, fg_color = "red", command = lambda : quitApp(root))
     quitButton.place(x = 720, y = 520)

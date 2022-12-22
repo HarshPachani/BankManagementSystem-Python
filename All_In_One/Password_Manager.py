@@ -123,11 +123,11 @@ def mainScreen():
     root.geometry("850x400")
     root.resizable(0, 0)
 
-    PASS_IMG = PhotoImage(file = "logo.png")
-    canvas = Canvas(root, width = 200, height = 200, bg = WINDOW_BG, highlightthickness=0) #for removing the highlighted border.
-    canvas.config()
-    canvas.create_image(100, 100, image = PASS_IMG)
-    canvas.grid(row = 0, column = 1)
+    # PASS_IMG = PhotoImage(file = "logo.png")
+    # canvas = Canvas(root, width = 200, height = 200, bg = WINDOW_BG, highlightthickness=0) #for removing the highlighted border.
+    # canvas.config()
+    # canvas.create_image(100, 100, image = PASS_IMG)
+    # canvas.grid(row = 0, column = 1)
 
     # Label
     # Label for Website
