@@ -26,7 +26,7 @@ def openFile():
         textArea.insert(1.0, f.read())
         f.close()
 
-def saveFile():
+def saveFile(root):
     global file
     if file == None:
         file = asksaveasfilename(initialfile="Untitled.txt",
@@ -47,7 +47,7 @@ def saveFile():
         f.write(textArea.get(1.0, END))
         f.close()
 
-def quitApp():
+def quitApp(root):
     root.destroy()
 
 def cut():
@@ -71,6 +71,7 @@ def mainScreen():
 
     #==========================Add TextArea=======================#
     file = None
+    global textArea
     textArea = Text(root, font = "Calibri 13")
     textArea.pack(expand=True, fill = BOTH)
 
@@ -85,9 +86,9 @@ def mainScreen():
     fileMenu.add_command(label = "Open", command = openFile)
 
     #To save the current file
-    fileMenu.add_command(label = "Save", command = saveFile)
+    fileMenu.add_command(label = "Save", command = lambda : saveFile(root))
     fileMenu.add_separator()
-    fileMenu.add_command(label = "Exit", command = quitApp)
+    fileMenu.add_command(label = "Exit", command = lambda : quitApp(root))
 
     menuBar.add_cascade(label = "File", menu = fileMenu)
     #Filemenu Ends
