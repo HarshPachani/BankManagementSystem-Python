@@ -111,7 +111,7 @@ def moveAFolder():
     except:
         msgb.showerror("Error!", "The folder cannot be moved. Make sure that the destination exists")
 
-def listFilesInFolder():
+def listFilesInFolder(root):
     i = 0
     #Using the askdirectory() method to select the folder
     folder1 = fd.askdirectory(title = "Select the folder")
@@ -170,7 +170,7 @@ def mainScreen():
     openFolderButton = Button(button_frame, text = "Open a Folder", font = "Calibri 15", width = 20, bg = "white", fg = "blue", relief = GROOVE, activebackground="lightgreen", command = openAFolder)
     deleteFolderButton = Button(button_frame, text = "Delete a Folder", font = "Calibri 15", width = 20, bg = "white", fg = "blue", relief = GROOVE, activebackground="lightgreen", command = deleteAFolder)
     moveFolderButton = Button(button_frame, text = "Move the Folder", font = "Calibri 15", width = 20, bg = "white", fg = "blue", relief = GROOVE, activebackground="lightgreen", command = moveAFolder)
-    listButton = Button(button_frame, text = "List Files in Folder", font = "Calibri 15", width = 20, bg = "white", fg = "blue", relief = GROOVE, activebackground="lightgreen", command = listFilesInFolder)
+    listButton = Button(button_frame, text = "List Files in Folder", font = "Calibri 15", width = 20, bg = "white", fg = "blue", relief = GROOVE, activebackground="lightgreen", command = lambda : listFilesInFolder(root))
     quitButton = Button(button_frame, text = "Quit", font = "Calibri 15", width = 20, bg = "white", fg = "red", relief = GROOVE, activebackground="lightgreen", command = lambda : quitApp(root))
 
     #======================PACKING ALL BUTTONS======================#
