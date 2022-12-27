@@ -10,6 +10,7 @@ import Digital_Clock
 import File_Explorer
 import Notepad
 import Password_Manager
+import sys
 
 conn = sqlite3.connect('BankDetails.db')
 myCur = conn.cursor()
@@ -35,6 +36,7 @@ customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("green")
 
 def quitApp(master):
+        sys.exit()
         master.destroy()
 
 def bankManagement():
