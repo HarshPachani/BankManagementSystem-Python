@@ -268,9 +268,6 @@ def mainScreen():
 
 #======================== START OF PASSWORD MANAGER ==============================
 
-customtkinter.set_default_color_theme("blue")
-customtkinter.set_appearance_mode("Dark")
-
 conn = sqlite3.connect('passwords.db')
 myCursor = conn.cursor()
 myCursor.execute("""CREATE TABLE IF NOT EXISTS pass(
